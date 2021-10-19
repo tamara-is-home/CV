@@ -81,4 +81,5 @@ def evaluate_wxbs():
 
 
 if __name__ == '__main__':
+    evaluate_evd()
     evaluate_wxbs()
