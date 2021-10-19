@@ -30,5 +30,4 @@ running multple loops (like in a sklearn's GridSearch) but ended up that the def
 simple RANSAC insdead of that cool one).
 
 
-7. My MODS works as swiss clock, but matching results ain't so good. I believe that Im missing the point with MSER and with parameters adjustment
-for all used detectors. An area for improvements is clear.
+7. My MODS works as swiss clock, but matching results ain't so good (ok, they are terrible). I've dealed with the fact that MSER wont work good no matter what I do, but the reason why ORB and BRISK perform good on example images (in utils.py) and are so bad in given dataset images remain unknown. I believe that Im missing some important point with MSER and that all detectors can be somehow better adjusted instead of using default parameters. But, once again, by efforts to use somekind of GridSearch to get better parameters didd lead me to better results. If we talk about ORB no matter what I put into create params, it still could do well with given images, same for BRISK.
