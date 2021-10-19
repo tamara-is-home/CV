@@ -1,0 +1,26 @@
+Difficulties, that I've encountered and how I fight them:
+
+
+1. Its way harder to properly set up ENV for computer vision task than I thought. Colab didnt work fine for me as some
+methods resufed to work there + a lot of troubles with different packages versions. I've tried using PyCharm on Macos,
+however there also were some troubles caused by some pre-installed OpenCv libraries that were in conflict with the ones
+
+
+I wanted to use. I ended up using PyCharm on WIndows and creating venv for project, installing only those things that I need.
+2. Some methods like SIFT or SURF refused to work. As far as I got it, they're not free in open cv, but one can use them with
+open-cv contrib. Still didnt work for me - even obj creation like SIFT_create() returned an error. Had to use other methods tho
+
+
+3. I've made a basic detector-descriptor-match-RANSAC pipeline and tested it on 3 different descriptors that Im using
+in my MODS. While ORB and BRISK works fine (at least they are able to easily match same image rotated by 45`), MSER performs really
+bad. The amount of keypoint found my MSER is the biggest, but there's only a few which can match well. I guess the trouble
+here might be that there's no descriptor for MSER, but only detector, thus I had to use ORB as descriptor.
+If you run utils.py you'll see what Im saying.
+
+4. When generating affine view of images, some images with black angles (e.g. after rotation) may be smeared is some really bad way.
+However, it doesnt affect point detection thus dont create problems
+
+5. Default parameters aint the best one to detect kp in some really angeled view. I've tried to find the best parameters by
+running multple loops (like in a sklearn's GridSearch) but ended up that the default ones performs the same as mine super-adjusted -_-
+
+6. Some stuff that is mentioned in MODS paper aint implemented in opencv, so had to use more plain analogs.
