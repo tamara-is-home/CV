@@ -30,7 +30,7 @@ def evaluate_evd():
         img2 = read_2_gray_img(f'images/2/{im_name}.png')
 
         mods = MODS(num_iter=7, matches_ratio=0.9)
-        H = mods.match_until_success(img1, img2, plot_best=False)
+        H = mods.match_until_success(img1, img2, plot_best=True)
 
         warp_with_homography(H, img1, img2, 'predicted')
         warp_with_homography(h_true, img1, img2, 'ground truth')
@@ -69,7 +69,7 @@ def evaluate_wxbs():
         img2 = read_2_gray_img(v[1])
 
         mods = MODS(num_iter=7, matches_ratio=0.9)
-        H = mods.match_until_success(img1, img2, plot_best=False)
+        H = mods.match_until_success(img1, img2, plot_best=True)
 
         warp_with_homography(H, img1, img2, 'predicted')
         warp_with_homography(h_true, img1, img2, 'ground truth')
